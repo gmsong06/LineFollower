@@ -1,8 +1,8 @@
-import wpilib
-from wpilib import DigitalInput, DigitalOutput
+from wpilib import DigitalInput
+from drivetrain import Drivetrain
 
 class LineFollower:
-    def __init__(self):
+    def __init__(self, drivetrain: Drivetrain):
         self.left_sensor = DigitalInput(0)  # TODO: CHANGE THESE TO THE RIGHT PORTS
         self.right_sensor = DigitalInput(1)  # TODO: CHANGE THESE TO THE RIGHT PORTS
         pass
