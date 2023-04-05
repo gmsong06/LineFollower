@@ -1,16 +1,17 @@
-import commands2
-import wpilib
-import wpilib.drive
+from wpilib.drive import DifferentialDrive
 
-class Drivetrain(commands2.SubsystemBase):
+
+class Drivetrain(DifferentialDrive):
     def __init__(self, left_motor, right_motor):
-        super().__init__()
+        super().__init__(left_motor, right_motor)
         self.left_motor = left_motor
         self.right_motor = right_motor
-        self.drivetrain = wpilib.drive.DifferentialDrive(self.left_motor, self.right_motor)
 
-    def arcadeDrive(self, forward, turn):
-        self.drivetrain.arcadeDrive(forward, turn)
+    def move_forward(self, speed):
+        self.arcadeDrive(speed, 0)
 
-    def tankDrive(self, left, right):
-        self.drivetrain.tankDrive(left, right)
+    def turn_left(self, rotation_speed):
+        self.arcadeDrive(0, rotation_speed)
+
+    def turn_right(self, rotation_speed):
+        self.arcadeDrive(0, -rotation_speed)
