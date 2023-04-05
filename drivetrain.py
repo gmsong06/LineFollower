@@ -8,10 +8,10 @@ class Drivetrain(DifferentialDrive):
         self.right_motor = right_motor
 
     def move_forward(self, speed):
-        self.arcadeDrive(speed, 0)
+        self.arcadeDrive(0, -speed)
 
     def turn_left(self, rotation_speed):
-        self.arcadeDrive(0, rotation_speed)
+        self.arcadeDrive(rotation_speed, 0)
 
     def turn_right(self, rotation_speed):
-        self.arcadeDrive(0, -rotation_speed)
+        self.arcadeDrive(-rotation_speed, 0)
